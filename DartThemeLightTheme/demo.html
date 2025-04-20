@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Room Toggle</title>
+  <style>
+    .room {
+      padding: 12px;
+      margin: 10px;
+      width: 220px;
+      background-color: green;
+      color: white;
+      cursor: pointer;
+      border-radius: 8px;
+      text-align: center;
+      font-size: 18px;
+      transition: background-color 0.3s ease;
+    }
+
+    .occupied {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="room" id="room101">Room 101 - Available</div>
+  <div class="room" id="room102">Room 102 - Available</div>
+  <div class="room" id="room103">Room 103 - Available</div>
+
+  <script>
+    const rooms = document.querySelectorAll('.room');
+
+    rooms.forEach(room => {
+      room.addEventListener('click', () => {
+        if (room.classList.contains('occupied')) {
+          room.classList.remove('occupied');
+          room.textContent = `${room.id.toUpperCase()} - Available`;
+        } else {
+          room.classList.add('occupied');
+          room.textContent = `${room.id.toUpperCase()} - Occupied`;
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
